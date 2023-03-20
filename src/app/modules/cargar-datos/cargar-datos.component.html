@@ -1,0 +1,156 @@
+<form [formGroup]="formData">
+  <p-card header="Selección de piloto">
+    <div class="flex justify-content-between">
+      <div class="flex flex-column">
+        <label>Piloto:</label>
+        <p-dropdown
+          [options]="pilotos"
+          [(ngModel)]="piloto"
+          (onChange)="prueba()"
+          [autoDisplayFirst]="false"
+          placeholder="Seleccione piloto"
+          optionLabel="name"
+          formControlName="piloto"
+        ></p-dropdown>
+      </div>
+      <ng-container *ngIf="piloto.name != ''">
+        <div class="flex flex-column">
+          <label>Equipo:</label>
+          <span>{{ piloto.team }}</span>
+        </div>
+        <div class="flex flex-column">
+          <label>Monoplaza:</label>
+          <span>{{ piloto.car }}</span>
+        </div>
+        <div>
+          <img
+            class="car"
+            [src]="'../../../assets/images/' + piloto.car + '.avif'"
+            alt=""
+          />
+        </div>
+      </ng-container>
+    </div>
+  </p-card>
+
+  <p-card header="Parámetros del monoplaza">
+    <div class="flex justify-content-between">
+      <div class="flex flex-column">
+        <label>Velocidad (km/h):</label>
+        <p-inputNumber formControlName="velocidad" suffix="km/h"></p-inputNumber>
+      </div>
+      <div class="flex flex-column">
+        <label>RPM:</label>
+        <p-inputNumber formControlName="rpm" suffix="rpm"></p-inputNumber>
+      </div>
+      <div class="flex flex-column">
+        <label>Marcha:</label>
+        <p-dropdown
+          [options]="['R', 'N', '1', '2', '3', '4', '5', '6', '7', '8']"
+          placeholder="Seleccione marcha"
+          formControlName="marcha"
+        ></p-dropdown>
+      </div>
+      <div class="flex flex-column">
+        <label>Tipo de llantas:</label>
+        <p-dropdown
+          [options]="[
+            'Blandas',
+            'Medias',
+            'Duras',
+            'Intermedias',
+            'Lluvia extrema'
+          ]"
+          placeholder="Seleccione llantas"
+          formControlName="llanta"
+        ></p-dropdown>
+      </div>
+    </div>
+
+    <div class="flex justify-content-between" style="padding-top: 1rem">
+      <div class="flex flex-column">
+        <label>Presión llanta DI (bar):</label>
+        <p-inputNumber formControlName="presionDI" suffix="bar"></p-inputNumber>
+      </div>
+      <div class="flex flex-column">
+        <label>Presión llanta DD (bar):</label>
+        <p-inputNumber formControlName="presionDD" suffix="bar"></p-inputNumber>
+      </div>
+      <div class="flex flex-column">
+        <label>Presión llanta TI (bar):</label>
+        <p-inputNumber formControlName="presionTI" suffix="bar"></p-inputNumber>
+      </div>
+      <div class="flex flex-column">
+        <label>Presión llanta TD (bar):</label>
+        <p-inputNumber formControlName="presionTD" suffix="bar"></p-inputNumber>
+      </div>
+    </div>
+
+    <div class="flex justify-content-between" style="padding-top: 1rem">
+      <div class="flex flex-column">
+        <label>Temperatura llanta DI (°C):</label>
+        <p-inputNumber formControlName="temperaturaDI" suffix="℃"></p-inputNumber>
+      </div>
+      <div class="flex flex-column">
+        <label>Temperatura llanta DD (°C):</label>
+        <p-inputNumber formControlName="temperaturaDD" suffix="℃"></p-inputNumber>
+      </div>
+      <div class="flex flex-column">
+        <label>Temperatura llanta TI (°C):</label>
+        <p-inputNumber formControlName="temperaturaTI" suffix="℃"></p-inputNumber>
+      </div>
+      <div class="flex flex-column">
+        <label>Temperatura llanta TD (°C):</label>
+        <p-inputNumber formControlName="temperaturaTD" suffix="℃"></p-inputNumber>
+      </div>
+    </div>
+
+    <div class="flex justify-content-between" style="padding-top: 1rem">
+      <div class="flex flex-column">
+        <label>Temperatura frenos (°C):</label>
+        <p-inputNumber formControlName="temperaturaFrenos" suffix="℃"></p-inputNumber>
+      </div>
+      <div class="flex flex-column">
+        <label>Temperatura motor (°C):</label>
+        <p-inputNumber formControlName="temperaturaMotor" suffix="℃"></p-inputNumber>
+      </div>
+      <div class="flex flex-column">
+        <label>Combustible (L):</label>
+        <p-inputNumber formControlName="combustible" suffix="L"></p-inputNumber>
+      </div>
+      <div class="flex flex-column">
+        <label>Porcentaje bateria (%):</label>
+        <p-inputNumber formControlName="bateria" suffix="%" [min]="0" [max]="100"></p-inputNumber>
+      </div>
+    </div>
+  </p-card>
+
+  <p-card header="Tiempos y datos de vuelta">
+    <div class="flex justify-content-between">
+      <div class="flex flex-column">
+        <label>Tiempo en vuelta(s):</label>
+        <p-inputNumber
+          suffix="s"
+          mode="decimal"
+          formControlName="tiempoVuelta"
+          [minFractionDigits]="2"
+        ></p-inputNumber>
+      </div>
+      <div class="flex flex-column">
+        <label>Vueltas totales:</label>
+        <p-inputNumber formControlName="vueltasTotal"></p-inputNumber>
+      </div>
+      <div class="flex flex-column">
+        <label>Vueltas stint actual:</label>
+        <p-inputNumber formControlName="vueltasStint"></p-inputNumber>
+      </div>
+    </div>
+  </p-card>
+
+  <p-card header="Enviar datos a Firebase">
+    <div class="flex align-item-center">
+      <button pButton type="button" label="Enviar" [disabled]="formData.invalid" (click)="enviarData()"></button>
+      <p *ngIf="formData.invalid" class="ml-3" style="color: red;">Llene todos los campos para continuar</p>
+    </div>
+  </p-card>
+</form>
