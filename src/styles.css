@@ -1,22 +1,46 @@
-body{
-     padding: 0;
-     margin: 0;
-     width: 100%;
-     background-color: #3b82f6;
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-color: #3b82f6;
 }
 
 .text-title {
-     font-size: 3rem;
-     font-weight: 900;
-     color: white;
-     font-family:  Times, serif;
-     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  font-family: Times, serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-.text-footer{
-     font-size: 1rem;
-     font-weight: 100;
-     color: white;
-     font-family:  Times, serif;
-     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.text-footer {
+  font-size: 1rem;
+  font-weight: 100;
+  color: white;
+  font-family: Times, serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.dato {
+  padding: 1rem;
+  border-radius: 15px;
+  background-color: aliceblue;
+  box-shadow: 1px 1px 24px rgba(0, 0, 0, 0.144);
+}
+
+.text-span {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.text-info {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: red;
+  margin-left: 0.3rem;
 }

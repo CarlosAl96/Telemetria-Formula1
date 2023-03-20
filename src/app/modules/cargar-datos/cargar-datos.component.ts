@@ -1,34 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Data, Piloto } from 'src/app/models/parametros';
+import { initializeApp } from "firebase/app";
+import { addDoc, collection, doc, getFirestore, setDoc } from 'firebase/firestore';
 
-interface Piloto {
-  name: string;
-  team: string;
-  car: string;
-}
 
-interface Data {
-  piloto: string;
-  velocidad: number;
-  rpm: number;
-  marcha: string;
-  llanta: string;
-  presionDI: number;
-  presionDD: number;
-  presionTI: number;
-  presionTD: number;
-  temperaturaDI: number;
-  temperaturaDD: number;
-  temperaturaTI: number;
-  temperaturaTD: number;
-  temperaturaFrenos: number;
-  temperaturaMotor: number;
-  combustible: number;
-  bateria: number;
-  tiempoVuelta: number;
-  vueltasTotal: number;
-  vueltasStint: number;
-}
 
 @Component({
   selector: 'app-cargar-datos',
@@ -44,6 +20,15 @@ interface Data {
   ],
 })
 export class CargarDatosComponent implements OnInit {
+
+  firebaseConfig: any = {
+    apiKey: "AIzaSyBC2lGqdkDcQ1i42y_OGXWMB9z_N--NfI0",
+    authDomain: "telemetriaf1-cdae0.firebaseapp.com",
+    projectId: "telemetriaf1-cdae0",
+    storageBucket: "telemetriaf1-cdae0.appspot.com",
+    messagingSenderId: "840512711825",
+    appId: "1:840512711825:web:37d8270c08a92f2a48a330"
+  };
 
   formData: FormGroup = new FormGroup({});
   piloto: Piloto = { name: '', team: '', car: '' };
@@ -162,11 +147,8 @@ export class CargarDatosComponent implements OnInit {
   constructor(private _form: FormBuilder) {}
 
   ngOnInit(): void {
+    initializeApp(this.firebaseConfig);
     this._loadForm();
-  }
-
-  prueba() {
-    console.log(this.piloto);
   }
 
   private _loadForm() {
@@ -194,8 +176,9 @@ export class CargarDatosComponent implements OnInit {
     });
   }
 
-  enviarData(){
+  async enviarData(){
     
+    const querydb = getFirestore();
 
     let data: Data = {
       piloto: this.formData.controls["piloto"].value.name,
@@ -220,7 +203,8 @@ export class CargarDatosComponent implements OnInit {
       vueltasStint: this.formData.controls["vueltasStint"].value,
     }
 
+    await addDoc(collection(querydb, "parametros"), data);
+
     console.log(data);
-    
   }
 }
