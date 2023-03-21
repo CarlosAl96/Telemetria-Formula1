@@ -2,104 +2,112 @@
   <p-accordion [multiple]="true">
     <ng-container *ngFor="let dat of data">
       <p-accordionTab [header]="dat.piloto">
-          <div class="flex w-full justify-content-between">
-               <div class="flex flex-column dato w-full">
-                    <label>Iformación general</label>
-                    <span class="text-span"
-                      >Velocidad:<span class="text-info">{{
-                        dat.velocidad + " km/h"
-                      }}</span></span
-                    >
-                    <span class="text-span"
-                      >RPM:<span class="text-info">{{ dat.rpm + " rpm" }}</span></span
-                    >
-                    <span class="text-span"
-                      >Marcha:<span class="text-info">{{ dat.marcha }}</span></span
-                    >
-                    <span class="text-span"
-                      >Llantas:<span class="text-info">{{ dat.llanta }}</span></span
-                    >
-                    <span class="text-span"
-                    >Combustible:<span class="text-info">{{ dat.combustible + " L" }}</span></span
-                  >
-                  <span class="text-span"
-                    >Bateria:<span class="text-info">{{ dat.bateria + " %" }}</span></span
-                  >
-                  </div>
-                  <div class="flex flex-column dato w-full ml-5">
-                    <label> Temperaturas </label>
-                    <span class="text-span"
-                      >Llanta delantera derecha:<span class="text-info">{{
-                        dat.temperaturaDD + " °C"
-                      }}</span></span
-                    >
-                    <span class="text-span"
-                      >Llanta delantera izquierda:<span class="text-info">{{
-                        dat.temperaturaDI + " °C"
-                      }}</span></span
-                    >
-                    <span class="text-span"
-                      >Llanta trasera derecha:<span class="text-info">{{
-                        dat.temperaturaTD + " °C"
-                      }}</span></span
-                    >
-                    <span class="text-span"
-                      >Llanta trasera izquierda:<span class="text-info">{{
-                        dat.temperaturaTI + " °C"
-                      }}</span></span
-                    >
-                    <span class="text-span"
-                      >Frenos:<span class="text-info">{{
-                        dat.temperaturaFrenos + " °C"
-                      }}</span></span
-                    >
-                    <span class="text-span"
-                      >Motor:<span class="text-info">{{
-                        dat.temperaturaMotor + " °C"
-                      }}</span></span
-                    >
-                  </div>
+        <div class="flex w-full justify-content-between">
+          <div class="flex flex-column dato w-full">
+            <label>Información general</label>
+            <span class="text-span"
+              >Velocidad:<span class="text-info">{{
+                dat.velocidad + " km/h"
+              }}</span></span
+            >
+            <span class="text-span"
+              >RPM:<span class="text-info">{{ dat.rpm + " rpm" }}</span></span
+            >
+            <span class="text-span"
+              >Marcha:<span class="text-info">{{ dat.marcha }}</span></span
+            >
+            <span class="text-span"
+              >Llantas:<span class="text-info">{{ dat.llanta }}</span></span
+            >
+            <span class="text-span"
+              >Combustible:<span class="text-info">{{
+                dat.combustible + " L"
+              }}</span></span
+            >
+            <span class="text-span"
+              >Bateria:<span class="text-info">{{
+                dat.bateria + " %"
+              }}</span></span
+            >
           </div>
+          <div class="flex flex-column dato w-full ml-5">
+            <label> Temperaturas </label>
+            <span class="text-span"
+              >Llanta delantera derecha:<span class="text-info">{{
+                dat.temperaturaDD + " °C"
+              }}</span></span
+            >
+            <span class="text-span"
+              >Llanta delantera izquierda:<span class="text-info">{{
+                dat.temperaturaDI + " °C"
+              }}</span></span
+            >
+            <span class="text-span"
+              >Llanta trasera derecha:<span class="text-info">{{
+                dat.temperaturaTD + " °C"
+              }}</span></span
+            >
+            <span class="text-span"
+              >Llanta trasera izquierda:<span class="text-info">{{
+                dat.temperaturaTI + " °C"
+              }}</span></span
+            >
+            <span class="text-span"
+              >Frenos:<span class="text-info">{{
+                dat.temperaturaFrenos + " °C"
+              }}</span></span
+            >
+            <span class="text-span"
+              >Motor:<span class="text-info">{{
+                dat.temperaturaMotor + " °C"
+              }}</span></span
+            >
+          </div>
+        </div>
 
-          <div class="flex w-full justify-content-between mt-5">
-               <div class="flex flex-column dato w-full">
-                    <label>Información de vueltas</label>
-                    <span class="text-span"
-                      >Tiempo en vuelta:<span class="text-info">{{
-                        dat.tiempoVuelta + " km/h"
-                      }}</span></span
-                    >
-                    <span class="text-span"
-                      >Total de vueltas:<span class="text-info">{{ dat.vueltasTotal + " rpm" }}</span></span
-                    >
-                    <span class="text-span"
-                      >Vueltas del stint actual:<span class="text-info">{{ dat.vueltasStint }}</span></span
-                    >
-                  </div>
-                  <div class="flex flex-column dato w-full ml-5">
-                    <label> Presión de las llantas </label>
-                    <span class="text-span"
-                      >Llanta delantera derecha:<span class="text-info">{{
-                        dat.presionDD + " bar"
-                      }}</span></span
-                    >
-                    <span class="text-span"
-                      >Llanta delantera izquierda:<span class="text-info">{{
-                        dat.presionDI + " bar"
-                      }}</span></span
-                    >
-                    <span class="text-span"
-                      >Llanta trasera derecha:<span class="text-info">{{
-                        dat.presionTD + " bar"
-                      }}</span></span
-                    >
-                    <span class="text-span"
-                      >Llanta trasera izquierda:<span class="text-info">{{
-                        dat.presionTI + " bar"
-                      }}</span></span
-                    >
-                  </div>
+        <div class="flex w-full justify-content-between mt-5">
+          <div class="flex flex-column dato w-full">
+            <label>Información de vueltas</label>
+            <span class="text-span"
+              >Tiempo en vuelta:<span class="text-info">{{
+                dat.tiempoVuelta + " s"
+              }}</span></span
+            >
+            <span class="text-span"
+              >Total de vueltas:<span class="text-info">{{
+                dat.vueltasTotal
+              }}</span></span
+            >
+            <span class="text-span"
+              >Vueltas del stint actual:<span class="text-info">{{
+                dat.vueltasStint
+              }}</span></span
+            >
           </div>
+          <div class="flex flex-column dato w-full ml-5">
+            <label> Presión de las llantas </label>
+            <span class="text-span"
+              >Llanta delantera derecha:<span class="text-info">{{
+                dat.presionDD + " bar"
+              }}</span></span
+            >
+            <span class="text-span"
+              >Llanta delantera izquierda:<span class="text-info">{{
+                dat.presionDI + " bar"
+              }}</span></span
+            >
+            <span class="text-span"
+              >Llanta trasera derecha:<span class="text-info">{{
+                dat.presionTD + " bar"
+              }}</span></span
+            >
+            <span class="text-span"
+              >Llanta trasera izquierda:<span class="text-info">{{
+                dat.presionTI + " bar"
+              }}</span></span
+            >
+          </div>
+        </div>
       </p-accordionTab>
     </ng-container>
   </p-accordion>
