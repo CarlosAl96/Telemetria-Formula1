@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Data, Piloto } from 'src/app/models/parametros';
 import { initializeApp } from "firebase/app";
-import { addDoc, collection, doc, getFirestore, setDoc } from 'firebase/firestore';
-
-
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 @Component({
   selector: 'app-cargar-datos',
@@ -204,7 +202,5 @@ export class CargarDatosComponent implements OnInit {
     }
 
     await addDoc(collection(querydb, "parametros"), data);
-
-    console.log(data);
   }
 }

@@ -32,12 +32,8 @@ export class DashboardComponent implements OnInit {
     const queryDocs = collection(querydb, 'parametros');
     const data = await getDocs(queryDocs);
 
-
-
     data.forEach((doc) => {
       this.data.push(doc.data())
-      console.log(this.data);
-      
     });
   }
 }
