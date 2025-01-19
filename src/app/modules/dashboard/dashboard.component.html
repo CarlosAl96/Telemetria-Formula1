@@ -1,4 +1,21 @@
 <div style="min-height: calc(100vh - 181.6px); padding: 1rem">
+
+  <div>
+    <google-map
+      width="1100px"
+      height="650px"
+      [options]="mapConfiguration"
+      [center]="center"
+    >
+      <map-marker
+        [position]="{
+          lat: this.initialCoordinates.lat,
+          lng: this.initialCoordinates.lng
+        }"
+      >
+      </map-marker>
+    </google-map>
+  </div>
   <p-accordion [multiple]="true">
     <ng-container *ngFor="let dat of data">
       <p-accordionTab [header]="dat.piloto">
@@ -111,4 +128,5 @@
       </p-accordionTab>
     </ng-container>
   </p-accordion>
+
 </div>

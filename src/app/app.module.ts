@@ -17,6 +17,9 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { AccordionModule } from 'primeng/accordion';
 
+import { GoogleMapsModule } from '@angular/google-maps';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +41,8 @@ import { AccordionModule } from 'primeng/accordion';
     ReactiveFormsModule,
     ButtonModule,
     AccordionModule,
+    GoogleMapsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
